@@ -1,0 +1,48 @@
+@CHARSET "ISO-8859-1";
+#image1{
+	z-index=1;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+}
+
+body { 
+    background-color: #FDF5E6;
+}
+
+#header{
+	width: 1195px;
+	border: solid black 4px;
+	height: 50px;
+	background: url(http://images.naldzgraphics.net/2014/07/44-white-smooth-seamless-concrete-textures.jpg);
+	display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+#music{
+	font-weight: bold;
+	font-size: 18px;
+	color: black;
+	text-decoration: none;
+	font-size: 30px; 
+	padding: 0px 10px;
+  	word-wrap: normal;
+  	display: inline-block;
+
+}
+
+#music:hover{
+	color: yellow;
+}
+
+#players{
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+	margin-top:auto;
+	width: 1100px;
+	height: 100%;
+	background: url(http://img10.deviantart.net/d235/i/2007/233/a/c/watercolor_painting_texture_by_enchantedgal_stock.jpg);
+}
