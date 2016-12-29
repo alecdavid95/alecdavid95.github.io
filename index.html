@@ -1,120 +1,74 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>FaceValue</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="index.css"/>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="boostrap_style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body onLoad="switchImage('slideImg')">
-<div><img src = "http://f4.bcbits.com/img/0003924538_100.png" style = "width:1200px" id = "image1"/></div>
-<div id = "header">
-<a id = "music" href = "index.html">Home</a>
-<a id = "music" href = "Music.html">Music</a>
-<a id = "music" href = "Store.html">News</a>
-<a id = "music" href = "Shows.html">Shows</a>
-<a id = "music" href = "New.html">Upcoming</a>
+<body>
+  <div class="jumbotron">
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="#">Face Value</a>
+		</div>
+		<ul class="nav navbar-nav">
+		  <li class="active"><a href="#">Home</a></li>
+		  <li><a href="Music.html">Music</a></li>
+		  <li><a href="Store.html">Store</a></li>
+		  <li><a href="Shows.html">Shows</a></li>
+		</ul>
+	  </div>
+	</nav>
+    <div id="banner">
+		<img src="images\banner.png" alt="banner">
+	</div>
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="images\head1.jpg" alt="park">
+    </div>
+
+    <div class="item">
+      <img src="images\head2.jpg" alt="jeb">
+    </div>
+
+    <div class="item">
+      <img src="images\head3.jpg" alt="gray">
+    </div>
+
+    <div class="item">
+      <img src="images\head4.jpg" alt="alec">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-<div class = "banner">
-<h2 style = "font-family: Impact" class = "text">Welcome to Face Value</h2>
-</div>
-<div id = "all">
-<div id = "table">
-<table>
-	<tbody>
-	<tr><td><img src = "http://f4.bcbits.com/img/0007343523_10.jpg" style = "width: 400px"/></td></tr>
-	<tr><td><img src = "images/pic2.jpg" style = "width: 400px"/></td></tr>
-	<tr><td><img src = "images/pic3.jpg" style = "width: 400px"/></td></tr>
-	</tbody>
-</table>
-</div>
-<div class = "right">
-<iframe style="border:0;" width="460" height = "259" src="https://www.youtube.com/embed/rbrX9bFToEU" class = "vid"></iframe>
-<iframe style="border:0;" width="460" height = "259" src="https://www.youtube.com/embed/P0hsPGi4jDI" class = "vid"></iframe>
-<iframe style="border:0;" width="460" height="259" src="https://www.youtube.com/embed/9aTsg9kH8Eo" class = "vid"></iframe>
-</div>
-</div>
-<script>
-var interval = 1500;
-var random_display = 0;
-var imageDir = "images/";
-
-var imageNum = 0;
-imageArray = new Array();
-imageArray[imageNum++] = new imageItem(imageDir + "head1.jpg" )
-imageArray[imageNum++] = new imageItem(imageDir + "head2.jpg" )
-imageArray[imageNum++] = new imageItem(imageDir + "head3.jpg" )
-imageArray[imageNum++] = new imageItem(imageDir + "head4.jpg" )
-var totalImages = imageArray.length;
-
-function imageItem(image_location) {
-	this.image_item = new Image();
-	this.image_item.src = image_location;
-}
-
-function get_ImageItemLocation(imageObj) {
-	return(imageObj.image_item.src)
-}
-
-function randNum(x, y) {
-	var range = y - x + 1;
-	return Math.floor(Math.random() * range) + x;
-}
-
-function getNextImage() {
-	if (random_display){
-		imageNum = randNum(0, totalImages - 1)
-	}
-	else {
-		imageNum = (imageNum + 1) % totalImages;
-	}
-
-	var new_image = get_ImageItemLocation(imageArray[imageNum]);
-	return(new_image);
-}
-
-function getPrevImage() {
-	imageNum = (image - 1) % totalImages;
-	var new_image = get_ImageItemLocation(imageArray[imageNum])
-	retunr(new_image);
-}
-
-function prevImage(place) {
-    var new_image = getPrevImage();
-    document[place].src = new_image;
-}
-
-function switchImage(place) {
-    var new_image = getNextImage();
-    document[place].src = new_image;
-    var recur_call = "switchImage('"+place+"')";
-    timerID = setTimeout(recur_call, interval);
-}
-</script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-<script>(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src="//x.instagramfollowbutton.com/follow.js";s.parentNode.insertBefore(g,s);}(document,"script"));</script>
-<div id = "bottomwrapper">
-<div id = "footer">
-<img id = "slide" name="slideImg" width=500 height=375 border=0>
-</div>
-<div id = "linkers">
-	<ul>
-		<li><img src = "http://www.crownlanestudio.co.uk/wp-content/uploads/2015/07/Spotify-listen-button-300x90.jpg"/></li>
-		<li><a href ="https://geo.itunes.apple.com/us/album/thick-as-thieves-ep/id1114060043?mt=1&app=music"><img src = "http://kadavy.wpengine.netdna-cdn.com/wp-content/uploads/2016/04/button-apple-itunes.png"/></a></li>
-	</ul>
-	<ul id = "social">
-	<li><div class="fb-follow" data-href="https://www.facebook.com/wearefacevalue" data-layout="standard" data-show-faces="true"></div></li>
-	<li><span class="ig-follow" data-id="5479dee" data-handle="igfbdotcom" data-count="true" data-size="large" data-username="true"></span></li>
-	<li><a href="https://www.reverbnation.com/WeAreFaceValue"><img src="https://gp1.wac.edgecastcdn.net/802892/production_static/20160628152655/images/my_links_badges/mylinks_profile_page.png" alt="Mylinks profile page" /></a></li>
-	</ul>
+<div class="sizer">
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/9aTsg9kH8Eo"></iframe>
 </div>
 </div>
-</body>
-</html>
+ </div>
+
